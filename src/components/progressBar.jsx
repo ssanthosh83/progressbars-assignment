@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import ShowProgress from "./showProgress";
 import HttpService from "./../services/httpService";
-import axios from "axios";
-
-const apiEndPoint = "http://pb-api.herokuapp.com/bars";
 
 class ProgressBar extends Component {
   state = {
@@ -14,8 +11,7 @@ class ProgressBar extends Component {
   };
 
   async componentDidMount() {
-    //const data = await HttpService.getBars();
-    const { data } = await axios.get(apiEndPoint);
+    const data = await HttpService.getBars();
 
     this.setState({
       bars: data.bars,
